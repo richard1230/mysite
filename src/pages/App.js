@@ -1,10 +1,13 @@
 import styles from './App.module.scss';
-import {Link,Route} from 'react-router-dom'
+import {Link,Route,withRouter} from 'react-router-dom'
 import HomePage from './HomePage'
 import WorkPage from './WorkPage'
 import WorkPageDetail from './WorkPageDetail'
 
-function App() {
+function App(props) {
+  //location是withRouter的属性
+  //props.location.pathname:获取当前的路由
+  console.log(props.location.pathname);
   return (
     <div className={styles.App}>
 
@@ -13,8 +16,8 @@ function App() {
         <div className={styles.box}>
           <Link to="/"><div className={styles.boxleft}>Vauxlab </div></Link>
           <div className={styles.boxright}>
-             <Link to="/"><p>HOME</p></Link>
-            <Link to="/works"><p>WORKS</p></Link>
+             <Link to="/" ><p className={props.location.pathname==="/"? styles.selected :null}>HOME</p></Link>
+            <Link to="/works"><p className={props.location.pathname==="/works"? styles.selected :null}>WORKS</p></Link>
           </div>
         </div>
 
@@ -33,4 +36,4 @@ function App() {
   );
 }
 
-export default App;
+export default withRouter(App);
