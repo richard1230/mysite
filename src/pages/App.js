@@ -1,5 +1,8 @@
 import styles from './App.module.scss';
-import {Link} from 'react-router-dom'
+import {Link,Route} from 'react-router-dom'
+import HomePage from './HomePage'
+import WorkPage from './WorkPage'
+import WorkPageDetail from './WorkPageDetail'
 
 function App() {
   return (
@@ -17,7 +20,10 @@ function App() {
 
       </header>
       <section className={styles.content}>
-        内容
+        <Route path="/" exact component={HomePage}/>
+        <Route path="/works" exact component={WorkPage}/>
+        <Route path="/works/:id" exact component={WorkPageDetail}/>
+
       </section>
       <footer className={styles.footer}>
         <p>© <b>2020 Richard's Site</b></p>

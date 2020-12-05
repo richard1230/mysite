@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 
-
-export default ()=>{
+export default ()=> {
   return (
-    <div>首页</div>
+    <div>作品页面详情</div>
   )
 }
